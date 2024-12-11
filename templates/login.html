@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h1 class="main-title">Administrator Login</h1>
+
+<form method="post" class="login-form">
+  {% if error_msg %}
+  <div style="color: red;">{{ error_msg }}</div>
+  {% endif %}
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" id="password">
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+{% endblock %}

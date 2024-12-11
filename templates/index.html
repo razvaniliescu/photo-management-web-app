@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+{% block content %}
+<h1>Image Gallery</h1>
+{% for category, images in images.items() %}
+    <h2>{{ category }}</h2>
+    <div>
+        {% for image in images %}
+            <a href="{{ url_for('display_image', category=category, image=image) }}">
+            <img src="{{ url_for('static', filename='images/' + category + '/' + image) }}" class="thumbnail">
+            </a>
+            {% if session["authenticated"] == True %}
+                <a href="{{ url_for('delete', category=category, image=image) }}">
+                    <button type="submit" class="btn btn-secondary">Delete</button>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endfor %}
+{% endblock %}

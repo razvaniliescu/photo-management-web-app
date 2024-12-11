@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./public/style.css">
+  <title>Web Gallery</title>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <div class="container">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/">Gallery</a>
+          {% if session["authenticated"] == True %}
+            <a class="nav-item nav-link" href="/upload">Upload</a>
+              <a class="nav-item nav-link" href="/logout">Logout</a>
+          {% else %}
+              <a class="nav-item nav-link" href="/login">Login</a>
+          {% endif %}
+          <a class="nav-item nav-link" href="/about">About me</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main role="main" class="container">
+    <div class="row">
+      <div class="content-box main-content">
+          {% block content %}
+          Default content
+          {% endblock %}
+      </div>
+    </div>
+  </main>
+  <script src="./public/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
